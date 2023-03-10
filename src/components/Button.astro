@@ -1,22 +1,23 @@
 ---
+import { ButtonColor, IconType } from '../utilities/utils';
 
 export interface Props {
-	icon: string;
+	icon: IconType;
+    color: ButtonColor;
     text: string;
-    color: string;
 }
 
 const { icon, text, color } = Astro.props;
 
-const iconMap: Map<string, string> = new Map<string, string>([
-    ['write', 'write-icon.svg'],
-    ['save', 'save.svg']
+const iconMap: Map<IconType, string> = new Map<IconType, string>([
+    [IconType.Create, 'write-icon.svg'],
+    [IconType.Save, 'save.svg']
 ]);
 
-const colorMap: Map<string, string> = new Map<string, string>([
-    ['blue', 'bg-gradient-to-br from-blue to-[#52F0F0]'],
-    ['purple', 'bg-gradient-to-r from-[#7518A1] to-[#8E18A1]'],
-    ['orange', 'bg-orange'],
+const colorMap: Map<ButtonColor, string> = new Map<ButtonColor, string>([
+    [ButtonColor.Blue, 'bg-gradient-to-br from-blue to-[#2763e9]'],
+    [ButtonColor.Purple, 'bg-gradient-to-br from-[#9819d7] to-[#7518a1]'],
+    [ButtonColor.Orange, 'bg-orange'],
 ]);
 ---
 <button class={`w-[200px] h-[84px] ${colorMap.get(color)} drop-shadow-2xl shadow-2xl rounded-lg`}>
