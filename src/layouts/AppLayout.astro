@@ -17,7 +17,10 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/ball.svg" />
 		<title>{title}</title>
 	</head>
-	<body class="bg-neutral pl-16">
-		<Logo /> <!-- HEADER PLUTONIUM -->
+	<body class="bg-neutral px-16">
+		<header>
+			<Logo /> <!-- HEADER PLUTONIUM -->
+		</header>
+		<slot />
 	</body>
 </html>

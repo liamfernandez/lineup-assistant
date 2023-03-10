@@ -1,0 +1,27 @@
+---
+
+export interface Props {
+	icon: string;
+    text: string;
+    color: string;
+}
+
+const { icon, text, color } = Astro.props;
+
+const iconMap: Map<string, string> = new Map<string, string>([
+    ['write', 'write-icon.svg'],
+    ['save', 'save.svg']
+]);
+
+const colorMap: Map<string, string> = new Map<string, string>([
+    ['blue', 'bg-gradient-to-br from-blue to-[#52F0F0]'],
+    ['purple', 'bg-gradient-to-r from-[#7518A1] to-[#8E18A1]'],
+    ['orange', 'bg-orange'],
+]);
+---
+<button class={`w-[200px] h-[84px] ${colorMap.get(color)} drop-shadow-2xl shadow-2xl rounded-lg`}>
+    <span class="flex flex-col items-center gap-y-1">
+        <p class="text-white text-xl font-bold tracking-tight">{text}</p>
+        <img src={`/${iconMap.get(icon)}`} class="h-[30px] w-[30px]">
+    </span>
+</button>
