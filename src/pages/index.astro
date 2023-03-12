@@ -1,8 +1,30 @@
 ---
 import AppLayout from '../layouts/AppLayout.astro';
+import Button from '../components/Button.astro';
+import { ButtonColor, IconType } from '../utilities/utils';
+
+const bodyText: string = "Welcome to this fantasy basketball tool built by Plutonium. If you're new to this tool, select ”Add New Lineup” below."
+const bodyTextNextLine: string = "If you would like to revisit a lineup created previously, select “Saved Teams”."
 ---
 
 <AppLayout title="Getting Started 🏠">
 	<main>
+		<div class="flex justify-center">
+			<div class="flex flex-col items-center shadow-2xl drop-shadow-2xl rounded-lg bg-neutralSecondary w-[699px] mt-16 pb-10">
+				<h2 class="text-[34px] text-egg font-semibold mt-4">
+					Getting Started
+				</h2>
+				<p class="text-egg text-center px-16 mt-6">{bodyText}</p>
+				<p class="text-egg text-center px-16 mt-8">{bodyTextNextLine}</p>
+				<div class="flex flex-row gap-20 mt-12">
+					<a href='newteam'>
+						<Button icon={IconType.Create} text="Add New Lineup" color={ButtonColor.Blue} />
+					</a>
+					<a href='myteams'>
+						<Button icon={IconType.Save} text="Saved Teams" color={ButtonColor.Purple}/>
+					</a>
+				</div>
+			</div>
+		</div>
 	</main>
 </AppLayout>
